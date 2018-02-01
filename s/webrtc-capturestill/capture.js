@@ -36,13 +36,7 @@
         audio: false
       },
       function(stream) {
-        if (navigator.mozGetUserMedia) {
-          video.mozSrcObject = stream;
-        } else {
-          var vendorURL = window.URL || window.webkitURL;
-          video.src = vendorURL.createObjectURL(stream);
-        }
-        video.play();
+        video.src = window.URL.createObjectURL(stream);
       },
       function(err) {
         console.log("An error occured! " + err);
